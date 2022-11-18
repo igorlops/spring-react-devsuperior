@@ -2,7 +2,17 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "tsc && vite build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
   "dependencies": {
+    "@preact/preset-vite": "^2.4.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -19,16 +29,19 @@
     "typescript": "^4.9.3",
     "vite": "^3.2.4",
     "web-vitals": "^2.1.4",
-    "yarn": "^1.22.19"
+    "yarn": "^1.22.19",
+    "preact": "^10.11.2",
+    "react-toastify": "9.0.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "tsc && vite build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "vite",
-    "preview": "vite preview"
+  "devDependencies": {
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@vitejs/plugin-react": "^2.2.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3"
   },
+  
+  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -41,6 +54,7 @@
       "not dead",
       "not op_mini all"
     ],
+
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
