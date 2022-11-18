@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Sale } from "../../models/sale";
 import NotificationButton from "../NotificationButton"
-// import { BASE_URL } from "../utils/request";
+import { BASE_URL } from "../utils/request";
 
 
 function SalesCard() {
@@ -22,9 +22,9 @@ function SalesCard() {
     const dmin = minDate.toISOString().slice(0,10);
     const dmax = maxDate.toISOString().slice(0,10);
 
-    const datePostman = `?minDate=${dmin}&maxDate=${dmax}`;
-    axios.get("http://localhost:8080/sales"+datePostman)
-    // axios.get(`${BASE_URL}/sales`)
+    // const datePostman = `?minDate=${dmin}&maxDate=${dmax}`;
+    // axios.get("http://localhost:8080/sales"+datePostman)
+    axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
       .then(response => {
         setSales(response.data.content);
       });
@@ -79,7 +79,7 @@ function SalesCard() {
                     <td>R$ {sale.amount.toFixed(2)}</td>
                     <td>
                       <div className="dsmeta-red-btn-container">
-                        <NotificationButton />
+                        <NotificationButton saleId={sale.id} />
                       </div>
                     </td>
                   </tr>
