@@ -18,12 +18,17 @@ function SalesCard() {
 
 
   useEffect(() => {
-    axios.get("http://localhost:8080/sales")
+
+    const dmin = minDate.toISOString().slice(0,10);
+    const dmax = maxDate.toISOString().slice(0,10);
+
+    const datePostman = `?minDate=${dmin}&maxDate=${dmax}`;
+    axios.get("http://localhost:8080/sales"+datePostman)
     // axios.get(`${BASE_URL}/sales`)
       .then(response => {
         setSales(response.data.content);
-      })
-  }, []);
+      });
+  }, [minDate,maxDate]);
 
 
   return (
